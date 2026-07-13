@@ -100,10 +100,8 @@ app.post('/project/new', async (req, res) => {
     try{
         const decoded = jwt.verify(token, SECRET_KEY);
         const project = await projectModel.create({
-            projectName: projectname,
-            projectDescription: projectdescription,
-            status: status,
-            deadline: deadline,
+            title: projectname,
+            description: projectdescription,
             owner: decoded.id
         });
         console.log(project);
@@ -111,6 +109,27 @@ app.post('/project/new', async (req, res) => {
     } catch (error) {
         console.error('Project creation error:', error);
         res.status(500).send('Error creating project');
+    }
+});
+
+app.get('/dashboard/:id', async (req, res) => {
+    
+    const projectId = req.params.id;
+    const token = req.cookies.token;
+    if (!token) {
+        return res.redirect('/login');
+    }
+    try {
+        const decoded = jwt.verify(token, SECRET_KEY);
+        const user = await userModel.findById(decoded.id);
+        const project = await projectModel.findById(projectId);
+        if (!project) {
+            return res.status(404).send('Project not found');
+        }
+        res.render('project', { project, user });
+    } catch (error) {
+        console.error('Error fetching project:', error);
+        res.status(500).send('Error fetching project');
     }
 });
 app.listen(3000);

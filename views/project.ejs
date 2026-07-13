@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- <header class="bg-gray-300 text-white p-4 mb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <nav>
+            <ul class="flex flex-wrap gap-4">
+                <li>
+                    <a class="text-blue-500 hover:text-blue-800" href="#">Active</a>
+                </li>
+                <li>
+                    <a class="text-blue-500 hover:text-blue-800" href="#">Link</a>
+                </li>
+                <li>
+                    <a class="text-blue-500 hover:text-blue-800" href="#">Link</a>
+                </li>
+                <li>
+                    <a class="text-gray-400 cursor-not-allowed" href="#">Disabled</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="bg-white text-gray-900 rounded-xl shadow p-3 w-full max-w-xs">
+            <div class="flex items-center gap-3">
+                <img class="w-12 h-12 rounded-full object-cover" src="<%= user.image %>" alt="<%= user.name %>" />
+                <div>
+                    <p class="text-sm font-semibold"><%= user.name %></p>
+                    <p class="text-xs text-gray-600 truncate"><%= user.email %></p>
+                </div>
+            </div>
+            
+        </div>
+    </header> -->
+    <main>
+        
+        <div class="bg-white p-4 rounded-lg mb-4">
+            <p class="text-gray-700">Welcome, <%= user.name %>! Your project details below.</p>
+            <h2 class="text-xl font-bold mb-2"><%= project.title %></h2>
+            <p class="text-gray-600 mb-2"><%= project.description %></p>
+        </div>
+    </main>
+
+   
+
+    <footer class="flex justify-center items-center gap-4 fixed bottom-0 w-full mb-4">
+        <a class="text-blue-500" href="/logout">Logout</a>
+    </footer>
+</body>
+</html>
