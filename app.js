@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const userModel = require('./models/user');
+const projectModel = require('./models/project');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -82,17 +83,35 @@ app.get('/dashboard', async (req, res) => {
     }
 })
 
-
-
-
-
-
 app.get("/logout", (req, res) => {
 
     res.clearCookie("token");
 
     res.redirect("/");
 
+});
+
+app.post('/project/new', async (req, res) => {
+    let { projectname, projectdescription, status, deadline } = req.body;
+    const token = req.cookies.token;
+    if (!token){
+        return res.redirect('/login');
+    }
+    try{
+        const decoded = jwt.verify(token, SECRET_KEY);
+        const project = await projectModel.create({
+            projectName: projectname,
+            projectDescription: projectdescription,
+            status: status,
+            deadline: deadline,
+            owner: decoded.id
+        });
+        console.log(project);
+        res.redirect('/dashboard');
+    } catch (error) {
+        console.error('Project creation error:', error);
+        res.status(500).send('Error creating project');
+    }
 });
 app.listen(3000);
 

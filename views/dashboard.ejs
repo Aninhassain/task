@@ -36,6 +36,18 @@
             
         </div>
     </header>
+    <main>
+        
+        <div class="bg-white p-4 rounded-lg  mb-4">
+            <p class="text-gray-700">Welcome, <%= user.name %>! You can add your project details below.</p>
+        <form class="space-y-4" action="/project/new" method="POST">
+            <input class="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="projectname" placeholder="Project Name">
+            <input class="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="projectdescription" placeholder="Project Description">
+            <input class="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="status" placeholder="Status">
+            <input class="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="deadline" placeholder="Deadline">
+            <input class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" type="submit" value="Submit">
+        </form>
+    </main>
 
    
 
