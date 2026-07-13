@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h2 class="text-2xl font-bold font-sans text-blue-700 px-4 py-2 mb-2"> Create User</h2>
+
+    <div class="px-2 py-2">
+        <form action="/create" method="post">
+            <input class="border-2 border-gray-300 rounded-md p-2" type="text" name="name" placeholder="Enter your name">
+            <input class="border-2 border-gray-300 rounded-md p-2" type="email" name="email" placeholder="Enter your email">
+            <input class="border-2 border-gray-300 rounded-md p-2" type="password" name="password" placeholder="Enter your password">
+            <input class="border-2 border-gray-300 rounded-md p-2" type="text" name="image" placeholder="Enter your image URL">
+            <input class="border-2  p-2 bg-blue-500 text-white " type="submit" value="Create">
+        </form>
+    </div>
+    <footer class="flex justify-center items-center gap-4 fixed bottom-0 w-full mb-4">
+        <a class="text-blue-500" href="/login">Login</a>
+        <!-- <a class="text-blue-500" href="/dashboard">Dashboard</a> -->
+        <!-- <a class="text-blue-500" href="/logout">Logout</a> -->
+    </footer>
+
+    
+
+</body>
+</html>
