@@ -33,7 +33,7 @@ app.post('/create', async (req, res) => {
             image,
             createdAt
         })
-        console.log(createdUser);
+        // console.log(createdUser);
         res.redirect('/');
     
 })
@@ -76,7 +76,7 @@ app.get('/dashboard', async (req, res) => {
         const decoded = jwt.verify(token, SECRET_KEY);
         const user = await userModel.findById(decoded.id);
         res.render('dashboard', { user });
-        console.log(user.name);
+        // console.log(user.name);
     }catch(error){
         return res.redirect('/login');
     }
